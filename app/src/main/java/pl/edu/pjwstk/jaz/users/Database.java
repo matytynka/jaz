@@ -9,7 +9,6 @@ public class Database {
         database.add(account);
     }
     public boolean CheckLoginandPassw(String username, String password) {
-
+        username.getBytes();
     }
 }
-
