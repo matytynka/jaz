@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+>
+
+<h:head>
+    <h:outputStylesheet name="main.css" library="css"/>
+</h:head>
+
+<h:body>
+
+    <div id="page">
+
+        <h:form>
+            <h:outputText value="#{msg['jaz.app.name']}"/>
+            <p/>
+
+            <h:inputText id="name" value="#{registerRequest.name}" a:placeholder="Imie">
+                <f:validateLength minimum="3" maximum="50"/>
+                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+            </h:inputText>
+            <h:message for="name"/>
+            <p/>
+
+            <h:inputText id="surname" value="#{registerRequest.surname}" a:placeholder="Nazwisko">
+                <f:validateLength minimum="3" maximum="50"/>
+                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+            </h:inputText>
+            <h:message for="surname"/>
+            <p/>
+
+            <h:inputText id="birthdate" value="#{registerRequest.birthdate}" a:placeholder="Data urodz. dd/mm/yyyy">
+                <f:validateLength minimum="10" maximum="10"/>
+                <f:validateRegex pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"/>
+            </h:inputText>
+            <h:message for="birthdate"/>
+            <p/>
+
+            <h:inputText id="email" value="#{registerRequest.email}" a:placeholder="E-mail">
+                <f:validateLength minimum="3" maximum="30"/>
+                <f:validateRegex pattern="^[^@]+@[^\.]+\..+$"/>
+            </h:inputText>
+            <h:message for="email"/>
+            <p/>
+
+            <h:inputText id="username" value="#{registerRequest.username}" a:placeholder="Login">
+                <f:validateLength minimum="3" maximum="15"/>
+                <f:validateRegex pattern="^[a-z0-9]+$"/>
+            </h:inputText>
+            <h:message for="username"/>
+            <p/>
+
+            <h:inputSecret id="password" match="password2" value="#{registerRequest.password}" a:placeholder="Haslo">
+                <f:validateLength minimum="3" maximum="30"/>
+                <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+            </h:inputSecret>
+            <h:message for="password"/>
+            <p/>
+
+            <h:inputSecret id="password2" value="#{registerRequest.password}" a:placeholder="Powtorz haslo">
+                <f:validateLength minimum="3" maximum="30"/>
+                <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+            </h:inputSecret>
+            <p/>
+            <h:commandButton value="Zarejestruj" action="#{registerController.login}"/>
+        </h:form>
+
+    </div>
+
+</h:body>
+</html>

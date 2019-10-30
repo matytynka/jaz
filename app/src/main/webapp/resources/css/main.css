@@ -1,0 +1,23 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    background:#3498db;
+    width:100%;
+    text-align:center;
+    margin: 20px 0 20px 0;
+}
+
+p{
+    font-size:12px;
+    color:#ffffff;
+}
+
+form {
+    margin: auto;
+    padding: 30px 3%;
+    width: 300px;
+    color: #121843;
+    background-color: lightsteelblue;
+
+    border-radius: 8px;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
