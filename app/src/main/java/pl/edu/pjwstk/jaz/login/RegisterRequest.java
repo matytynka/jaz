@@ -1,5 +1,7 @@
 package pl.edu.pjwstk.jaz.login;
 
+import pl.edu.pjwstk.jaz.users.Account;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -60,5 +62,16 @@ public class RegisterRequest {
                 ", birthdate='" + birthdate + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+    public Account getAccount() {
+        Account acc = new Account();
+        acc.setUsername(this.username);
+        acc.setPassword(this.password);
+        acc.setBirthdate(this.birthdate);
+        acc.setEmail(this.email);
+        acc.setSurname(this.surname);
+        acc.setName(this.name);
+
+        return acc;
     }
 }
