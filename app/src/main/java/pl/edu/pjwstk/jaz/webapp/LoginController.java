@@ -1,6 +1,8 @@
 package pl.edu.pjwstk.jaz.webapp;
 
 //import pl.edu.pjwstk.jaz.auth.ProfileRepository;
+import pl.edu.pjwstk.jaz.auth.ProfileEntity;
+import pl.edu.pjwstk.jaz.auth.ProfileRepository;
 import pl.edu.pjwstk.jaz.login.LoginRequest;
 import pl.edu.pjwstk.jaz.users.Account;
 import pl.edu.pjwstk.jaz.users.Database;
@@ -24,15 +26,15 @@ public class LoginController {
     @Inject
     private UserSession userSession;
 
-    /*@Inject
-    private ProfileRepository profileRepository;*/
+    @Inject
+    private ProfileRepository profileRepository;
 
     public void login() {
         System.out.println("Tried to log in using " + loginRequest.toString());
 
-        Account acc = database.CheckLoginandPassw(loginRequest.getUsername(),loginRequest.getPassword());
+        ProfileEntity acc = profileRepository.CheckLoginandPassw(loginRequest.getUsername(),loginRequest.getPassword());
         if (acc!=null) {
-            userSession.setAccount(acc);
+            userSession.setProfile(acc);
         }
        // profileRepository.sampleCodeWithPC();
     }

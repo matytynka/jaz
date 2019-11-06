@@ -17,12 +17,11 @@
     <div id="page">
 
         <h:form>
-            <h:outputText value="#{msg['jaz.app.name']}"/>
+            <h1><h:outputText value="#{msg['jaz.app.name']}"/></h1>
             <p/>
 
             <h:inputText id="username" value="#{loginRequest.username}" a:placeholder="Login">
                 <f:validateLength minimum="3" maximum="15"/>
-            <f:validateRegex pattern="^[a-z]+$"/>
             </h:inputText>
             <h:message for="username"/>
             <p/>

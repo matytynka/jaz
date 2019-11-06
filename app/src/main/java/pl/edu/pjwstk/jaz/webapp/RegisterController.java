@@ -1,6 +1,7 @@
 package pl.edu.pjwstk.jaz.webapp;
 
 //import pl.edu.pjwstk.jaz.auth.ProfileRepository;
+import pl.edu.pjwstk.jaz.auth.ProfileRepository;
 import pl.edu.pjwstk.jaz.login.RegisterRequest;
 import pl.edu.pjwstk.jaz.users.Database;
 
@@ -18,13 +19,13 @@ public class RegisterController {
     @Inject
     private Database database;
 
-    /*@Inject
-    private ProfileRepository profileRepository;*/
+    @Inject
+    private ProfileRepository profileRepository;
 
     public void login() {
         System.out.println("Tried to register using " + registerRequest.toString());
 
-        database.newUser(registerRequest.getAccount());
+        profileRepository.newUser(registerRequest.getProfileEnity());
 
        // profileRepository.sampleCodeWithPC();
     }

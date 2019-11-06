@@ -1,4 +1,4 @@
-/*package pl.edu.pjwstk.jaz;
+package pl.edu.pjwstk.jaz;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -7,12 +7,9 @@ import liquibase.integration.cdi.annotations.LiquibaseType;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import liquibase.resource.ResourceAccessor;
 
-import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 import javax.sql.DataSource;
-import java.sql.SQLException;
 
 @ApplicationScoped
 public class LiquibaseConfig {
@@ -26,7 +23,7 @@ public class LiquibaseConfig {
 
     @Produces
     @LiquibaseType
-    public DataSource createDataSource() throws SQLException {
+    public DataSource createDataSource() {
         var config = new HikariConfig();
         config.setDriverClassName("org.postgresql.Driver");
         config.setJdbcUrl("jdbc:postgresql://localhost:5432/jazapp");
@@ -43,4 +40,3 @@ public class LiquibaseConfig {
     }
 
 }
-*/

@@ -1,5 +1,6 @@
 package pl.edu.pjwstk.jaz.users;
 
+import pl.edu.pjwstk.jaz.auth.ProfileEntity;
 import pl.edu.pjwstk.jaz.login.LoginFilter;
 import pl.edu.pjwstk.jaz.webapp.LoginController;
 
@@ -11,18 +12,18 @@ import java.io.Serializable;
 @Named
 @SessionScoped
 public class UserSession implements Serializable {
-    private Account account;
+    private ProfileEntity profileEntity;
 
-    public Account getAccount() {
-        return account;
+    public ProfileEntity getProfile() {
+        return profileEntity;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setProfile(ProfileEntity profileEntity) {
+        this.profileEntity = profileEntity;
     }
 
     public boolean loggedUser() {
-        if (account != null) {
+        if (profileEntity != null) {
             return true;
         } else {
             return false;

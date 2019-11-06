@@ -1,5 +1,7 @@
 package pl.edu.pjwstk.jaz.login;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import pl.edu.pjwstk.jaz.auth.ProfileEntity;
 import pl.edu.pjwstk.jaz.users.Account;
 
 import javax.enterprise.context.RequestScoped;
@@ -63,14 +65,17 @@ public class RegisterRequest {
                 ", password='" + password + '\'' +
                 '}';
     }
-    public Account getAccount() {
-        Account acc = new Account();
-        acc.setUsername(this.username);
+    public ProfileEntity getProfileEnity() {
+        var passwordEncoder = new BCryptPasswordEncoder();
+        final String hashedPassword = passwordEncoder.encode(this.password);
+
+        ProfileEntity acc = new ProfileEntity(this.username, this.name, this.surname, this.email, this.birthdate, hashedPassword);
+        /*acc.setUsername(this.username);
         acc.setPassword(this.password);
         acc.setBirthdate(this.birthdate);
         acc.setEmail(this.email);
         acc.setSurname(this.surname);
-        acc.setName(this.name);
+        acc.setName(this.name);*/
 
         return acc;
     }
