@@ -9,12 +9,15 @@
 >
 
 <h:head>
-    <h:outputStylesheet name="main.css" library="css"/>
+    <title>Zaloguj</title>
 </h:head>
 
 <h:body>
+    <ui:composition template = "templates/commonLayout.xhtml">
+        <ui:define name="header"></ui:define>
+        <ui:define name="content">
 
-    <div id="page">
+                <div id="page">
 
         <h:form>
             <h1><h:outputText value="#{msg['jaz.app.name']}"/></h1>
@@ -36,5 +39,7 @@
 
     </div>
 
+            </ui:define>
+    </ui:composition>
 </h:body>
 </html>

@@ -4,15 +4,23 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+>
 
 <h:head>
     <title>Allezon</title>
-    <h:outputStylesheet name="main.css" library="css" />
 </h:head>
 
 <h:body>
-    <h2>Witaj w <h:outputText value="#{msg['jaz.app.name']}"/>!</h2>
+    <ui:composition template = "templates/commonLayout.xhtml">
+    <ui:define name="header"></ui:define>
+    <ui:define name="content">
+
+        <h2>Witaj w <h:outputText value="#{msg['jaz.app.name']}"/>!</h2>
+
+    </ui:define>
+    </ui:composition>
 </h:body>
 
 </html>
