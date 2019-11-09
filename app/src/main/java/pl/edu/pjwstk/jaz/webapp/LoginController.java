@@ -1,6 +1,7 @@
 package pl.edu.pjwstk.jaz.webapp;
 
 //import pl.edu.pjwstk.jaz.auth.ProfileRepository;
+import org.jboss.jandex.Index;
 import pl.edu.pjwstk.jaz.auth.ProfileEntity;
 import pl.edu.pjwstk.jaz.auth.ProfileRepository;
 import pl.edu.pjwstk.jaz.login.LoginRequest;
@@ -29,12 +30,14 @@ public class LoginController {
     @Inject
     private ProfileRepository profileRepository;
 
-    public void login() {
+    public void login() throws IOException {
         System.out.println("Tried to log in using " + loginRequest.toString());
 
         ProfileEntity acc = profileRepository.CheckLoginandPassw(loginRequest.getUsername(),loginRequest.getPassword());
         if (acc!=null) {
             userSession.setProfile(acc);
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().redirect("/app");
         }
        // profileRepository.sampleCodeWithPC();
     }
