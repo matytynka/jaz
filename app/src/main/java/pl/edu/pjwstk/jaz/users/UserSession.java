@@ -27,7 +27,7 @@ public class UserSession implements Serializable {
 
     public void setProfile(ProfileEntity profileEntity) {
         this.profileEntity = profileEntity;
-        accountName = " " + profileEntity.getName() + " " + profileEntity.getUsername();
+        accountName = " " + profileEntity.getName() + " " + profileEntity.getSurname();
     }
 
     public boolean loggedUser() {
