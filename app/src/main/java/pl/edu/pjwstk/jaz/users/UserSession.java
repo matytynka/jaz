@@ -12,14 +12,22 @@ import java.io.Serializable;
 @Named
 @SessionScoped
 public class UserSession implements Serializable {
+
+    private String accountName = "";
+
     private ProfileEntity profileEntity;
 
     public ProfileEntity getProfile() {
         return profileEntity;
     }
 
+    public String getAccountName() {
+        return accountName;
+    }
+
     public void setProfile(ProfileEntity profileEntity) {
         this.profileEntity = profileEntity;
+        accountName = " " + profileEntity.getName() + " " + profileEntity.getUsername();
     }
 
     public boolean loggedUser() {
@@ -29,4 +37,5 @@ public class UserSession implements Serializable {
             return false;
         }
     }
+
 }

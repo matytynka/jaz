@@ -17,7 +17,7 @@
     <ui:define name="header"></ui:define>
     <ui:define name="content">
 
-        <h2>Witaj w <h:outputText value="#{msg['jaz.app.name']}"/>!</h2>
+        <h2>Witaj w <h:outputText value="#{msg['jaz.app.name']}"/> <h:outputText value="#{userSession.accountName}"/>!</h2>
 
     </ui:define>
     </ui:composition>
