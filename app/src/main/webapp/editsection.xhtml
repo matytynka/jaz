@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+>
+
+<h:head>
+    <title>Allezon</title>
+</h:head>
+
+<h:body>
+    <ui:composition template = "templates/commonLayout.xhtml">
+        <ui:define name="header"></ui:define>
+        <ui:define name="content">
+            <div id="page">
+
+            <h2>Edycja dzialow i kategorii</h2>
+
+                <h:form>
+                    <h1><h:outputText value="Add section"/></h1>
+                    <p/>
+
+                    <h:inputText id="name" value="#{sectionRequest.name}" a:placeholder="Name">
+                        <f:validateLength minimum="3" maximum="15"/>
+                    </h:inputText>
+                    <h:message for="name"/>
+                    <p/>
+
+                    <h:commandButton value="Add" action="#{sectionController.addSection}"/>
+                    <p/>
+
+                </h:form>
+
+            </div>
+
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

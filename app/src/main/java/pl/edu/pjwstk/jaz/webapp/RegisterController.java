@@ -27,7 +27,7 @@ public class RegisterController {
     public void login() throws IOException {
         System.out.println("Tried to register using " + registerRequest.toString());
 
-        profileRepository.newUser(registerRequest.getProfileEnity());
+        profileRepository.newUser(registerRequest.getProfileEntity());
 
         FacesContext context = FacesContext.getCurrentInstance();
         context.getExternalContext().redirect("/app/webapp/login");

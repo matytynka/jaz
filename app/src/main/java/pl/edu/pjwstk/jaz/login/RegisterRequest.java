@@ -65,7 +65,7 @@ public class RegisterRequest {
                 ", password='" + password + '\'' +
                 '}';
     }
-    public ProfileEntity getProfileEnity() {
+    public ProfileEntity getProfileEntity() { //Enity
         var passwordEncoder = new BCryptPasswordEncoder();
         final String hashedPassword = passwordEncoder.encode(this.password);
 
