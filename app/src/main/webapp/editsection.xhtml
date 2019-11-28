@@ -7,7 +7,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
 
 <h:head>
@@ -26,16 +26,94 @@
                     <h1><h:outputText value="Add section"/></h1>
                     <p/>
 
-                    <h:inputText id="name" value="#{sectionRequest.name}" a:placeholder="Name">
+                    <h:inputText id="sectionName" value="#{sectionRequest.name}" a:placeholder="Name">
                         <f:validateLength minimum="3" maximum="15"/>
                     </h:inputText>
-                    <h:message for="name"/>
+                    <h:message for="sectionName"/>
                     <p/>
 
                     <h:commandButton value="Add" action="#{sectionController.addSection}"/>
                     <p/>
 
                 </h:form>
+
+                <p/>
+
+                <h:form>
+                    <h1><h:outputText value="Add category"/></h1>
+                    <p/>
+
+                    <h:inputText id="categoryName" value="#{categoryRequest.name}" a:placeholder="Name">
+                        <f:validateLength minimum="3" maximum="15"/>
+                    </h:inputText>
+                    <h:message for="categoryName"/>
+                    <p/>
+
+                    <h:selectOneMenu value="#{categoryRequest.sectionName}">
+                        <c:forEach items="#{sectionRepository.sectionList}" var="section" varStatus="metadata">
+                            <f:selectItem itemValue="#{section.name}"/>
+                        </c:forEach>
+                    </h:selectOneMenu>
+                    <p/>
+
+                    <h:commandButton value="Add" action="#{categoryController.addCategory}"/>
+                    <p/>
+
+                </h:form>
+
+                <p/>
+
+                <h:form>
+                    <h1><h:outputText value="Update section"/></h1>
+                    <p/>
+
+                    <h:selectOneMenu value="#{sectionEditRequest.oldName}">
+                        <c:forEach items="#{sectionRepository.sectionList}" var="section" varStatus="metadata">
+                            <f:selectItem itemValue="#{section.name}"/>
+                        </c:forEach>
+                    </h:selectOneMenu>
+                    <p/>
+
+                    <h:inputText id="sectionUpdate" value="#{sectionEditRequest.newName}" a:placeholder="Name">
+                        <f:validateLength minimum="3" maximum="15"/>
+                    </h:inputText>
+                    <h:message for="sectionUpdate"/>
+                    <p/>
+
+                    <h:commandButton value="Edit" action="#{sectionController.updateSection}"/>
+                    <p/>
+
+                </h:form>
+
+                <p/>
+                <h:form>
+                <h1><h:outputText value="Update Category"/></h1>
+
+                    <h:selectOneMenu value="#{categoryEditRequest.oldName}">
+                        <c:forEach items="#{categoryRepository.categoryList}" var="category" varStatus="metadata">
+                            <f:selectItem itemValue="#{category.name}"/>
+                        </c:forEach>
+                    </h:selectOneMenu>
+                    <p/>
+
+                    <h:inputText id="categoryUpdate" value="#{categoryEditRequest.newName}" a:placeholder="Name">
+                        <f:validateLength minimum="3" maximum="15"/>
+                    </h:inputText>
+                    <h:message for="categoryUpdate"/>
+                    <p/>
+
+                    <h:selectOneMenu value="#{categoryEditRequest.newSectionName}">
+                        <c:forEach items="#{sectionRepository.sectionList}" var="section" varStatus="metadata">
+                            <f:selectItem itemValue="#{section.name}"/>
+                        </c:forEach>
+                    </h:selectOneMenu>
+                    <p/>
+
+                    <h:commandButton value="Edit" action="#{categoryController.updateCategory}"/>
+                    <p/>
+
+                </h:form>
+
 
             </div>
 

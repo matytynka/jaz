@@ -1,12 +1,13 @@
-package pl.edu.pjwstk.jaz.auth;
-
-import pl.edu.pjwstk.jaz.auction.Category;
+package pl.edu.pjwstk.jaz.category;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.List;
 
+@Named
 @ApplicationScoped
 public class CategoryRepository {
     @PersistenceContext
@@ -21,4 +22,15 @@ public class CategoryRepository {
     public void updateCategory(Category category) {
         em.merge(category);
     }
+
+    @Transactional
+    public Category findByName(String name) {
+        return em.createQuery("from Category where name = :categoryName", Category.class).setParameter("categoryName", name).getSingleResult();
+    }
+
+    @Transactional
+    public List<Category> getCategoryList() {
+        return em.createQuery("from Category", Category.class).getResultList();
+    }
+
 }

@@ -1,6 +1,4 @@
-package pl.edu.pjwstk.jaz.login;
-
-import pl.edu.pjwstk.jaz.auction.Section;
+package pl.edu.pjwstk.jaz.section;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

@@ -1,8 +1,4 @@
-package pl.edu.pjwstk.jaz.webapp;
-
-import pl.edu.pjwstk.jaz.auction.Section;
-import pl.edu.pjwstk.jaz.auth.SectionRepository;
-import pl.edu.pjwstk.jaz.login.SectionRequest;
+package pl.edu.pjwstk.jaz.section;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -17,7 +13,16 @@ public class SectionController {
     @Inject
     private SectionRepository sectionRepository;
 
+    @Inject
+    private SectionEditRequest sectionEditRequest;
+
     public void addSection() {
         sectionRepository.newSection(new Section(sectionRequest.getName()));
+    }
+
+    public void updateSection() {
+        Section section = sectionRepository.findByName(sectionEditRequest.getOldName()); //stara nazwa
+        section.setName(sectionEditRequest.getNewName()); // nowa nazwa
+        sectionRepository.updateSection(section);
     }
 }

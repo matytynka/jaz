@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jaz.auction;
+package pl.edu.pjwstk.jaz.section;
 
 import javax.persistence.*;
 
@@ -18,4 +18,11 @@ public class Section {
     }
     public Section() {}
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

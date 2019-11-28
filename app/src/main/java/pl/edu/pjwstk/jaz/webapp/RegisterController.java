@@ -32,6 +32,6 @@ public class RegisterController {
         FacesContext context = FacesContext.getCurrentInstance();
         context.getExternalContext().redirect("/app/webapp/login");
 
-       // profileRepository.sampleCodeWithPC();
+       //profileRepository.sampleCodeWithPC();
     }
 }
