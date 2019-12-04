@@ -22,7 +22,7 @@ public class LoginFilter extends HttpFilter {
 
         boolean CSSExists = req.getRequestURI().contains(".css");
 
-        if (userSession.loggedUser() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("editsection.xhtml") || CSSExists) {
+        if (userSession.loggedUser() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("editsection.xhtml") || req.getRequestURI().contains("addauction.xhtml") || CSSExists) {
             chain.doFilter(req, res);
         } else {
             res.sendRedirect(req.getContextPath()+"/login.xhtml");

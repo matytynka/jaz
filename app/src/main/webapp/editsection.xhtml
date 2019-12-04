@@ -66,7 +66,7 @@
                 <h:form>
                     <h1><h:outputText value="Update section"/></h1>
                     <p/>
-
+                    Stara nazwa dzialu:
                     <h:selectOneMenu value="#{sectionEditRequest.oldName}">
                         <c:forEach items="#{sectionRepository.sectionList}" var="section" varStatus="metadata">
                             <f:selectItem itemValue="#{section.name}"/>
@@ -74,6 +74,7 @@
                     </h:selectOneMenu>
                     <p/>
 
+                    Nowa nazwa dla dzialu:
                     <h:inputText id="sectionUpdate" value="#{sectionEditRequest.newName}" a:placeholder="Name">
                         <f:validateLength minimum="3" maximum="15"/>
                     </h:inputText>
@@ -89,6 +90,7 @@
                 <h:form>
                 <h1><h:outputText value="Update Category"/></h1>
 
+                    Stara nazwa kategorii:
                     <h:selectOneMenu value="#{categoryEditRequest.oldName}">
                         <c:forEach items="#{categoryRepository.categoryList}" var="category" varStatus="metadata">
                             <f:selectItem itemValue="#{category.name}"/>
@@ -96,12 +98,14 @@
                     </h:selectOneMenu>
                     <p/>
 
+                    Nowa nazwa dla kategorii:
                     <h:inputText id="categoryUpdate" value="#{categoryEditRequest.newName}" a:placeholder="Name">
                         <f:validateLength minimum="3" maximum="15"/>
                     </h:inputText>
                     <h:message for="categoryUpdate"/>
                     <p/>
 
+                    Przeniesienie do dzialu:
                     <h:selectOneMenu value="#{categoryEditRequest.newSectionName}">
                         <c:forEach items="#{sectionRepository.sectionList}" var="section" varStatus="metadata">
                             <f:selectItem itemValue="#{section.name}"/>

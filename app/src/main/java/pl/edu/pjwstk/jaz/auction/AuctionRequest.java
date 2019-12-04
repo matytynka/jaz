@@ -3,55 +3,27 @@ package pl.edu.pjwstk.jaz.auction;
 import pl.edu.pjwstk.jaz.auth.ProfileEntity;
 import pl.edu.pjwstk.jaz.category.Category;
 
-import javax.persistence.*;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import java.util.List;
 
-@Entity
-public class Auction {
+@Named
+@RequestScoped
+public class AuctionRequest {
 
-    @Id
-    private int id;
+    //String title, String description, float price, Category category, ProfileEntity owner, List<Photo> photos
 
-    @Column(name = "title")
     private String title;
-
-    @Column(name = "description")
     private String description;
-
-    @Column(name = "price")
     private float price;
-
-    @ManyToOne
-    @JoinColumn(name = "category")
     private Category category;
-
-    @ManyToOne
-    @JoinColumn(name = "owner")
     private ProfileEntity owner;
-
-    @OneToMany
     private List<Photo> photos;
 
-    public Auction(String title, String description, float price, Category category, ProfileEntity owner, List<Photo> photos) {
-        this.title = title;
-        this.price = price;
-        this.category = category;
-        this.owner = owner;
-        this.photos = photos;
-    }
-    public Auction() {}
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
+    public String getDescription() { return description; }
 
     public void setDescription(String description) {
         this.description = description;
@@ -87,5 +59,11 @@ public class Auction {
 
     public void setPhotos(List<Photo> photos) {
         this.photos = photos;
+    }
+
+    @Override
+    public String toString() {
+        return "AuctionRequest{" +
+                "title='" + title + '\'' + '}';
     }
 }

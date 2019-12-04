@@ -8,13 +8,16 @@ public class AuctionParameterValue {
     @EmbeddedId
     private AuctionParameterId auctionParameterId;
 
-   /* @OneToOne
+    @OneToOne
+    @MapsId("auctionId")
     @JoinColumn(name = "auction")
     private Auction auction;
 
     @ManyToOne
+    @MapsId("parameterId")
     @JoinColumn(name = "parameter")
-    private Parameter parameter;*/
+    private Parameter parameter;
 
+    @Column(name = "value")
     private String value;
 }
