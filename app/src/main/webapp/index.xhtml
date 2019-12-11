@@ -6,6 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
 >
 
 <h:head>
@@ -29,7 +30,10 @@
             <c:forEach items="#{auctionRepository.auctionList}" var="auction" varStatus="metadata">
                 <tr>
                     <td>
+                        <h:link outcome="auction">
+                                <f:param name="auctionId" value="#{auction.id}"/>
                         <h:outputText value = "#{auction.title}"/>
+                        </h:link>
                     </td>
                     <td>
                         <h:outputText value = "#{auction.price}"/>

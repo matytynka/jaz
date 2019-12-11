@@ -1,5 +1,6 @@
 package pl.edu.pjwstk.jaz.auction;
 
+import pl.edu.pjwstk.jaz.auth.ProfileEntity;
 import pl.edu.pjwstk.jaz.category.Category;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -39,6 +40,16 @@ public class AuctionRepository {
     @Transactional
     public Category findByName(String name) {
         return em.createQuery("from Category where name = :categoryName", Category.class).setParameter("categoryName", name).getSingleResult();
+    }
+
+    @Transactional
+    public List<Auction> findByOwner(ProfileEntity owner) {
+        return em.createQuery("from Auction where owner = :auctionOwner", Auction.class).setParameter("auctionOwner", owner).getResultList();
+    }
+
+    @Transactional
+    public Auction getbyId(int id) {
+        return em.createQuery("from Auction where id = :auctionId", Auction.class).setParameter("auctionId", id).getSingleResult();
     }
 }
 

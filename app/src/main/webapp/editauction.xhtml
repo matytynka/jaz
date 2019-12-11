@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:c="http://java.sun.com/jsp/jstl/core"
+>
+<h:head>
+    <title>Allezon</title>
+</h:head>
+
+<h:body>
+<ui:composition template = "templates/commonLayout.xhtml">
+<ui:define name="header"></ui:define>
+<ui:define name="content">
+<div id="page">
+    <h2>Edycja moich aukcji</h2>
+<h:form>
+    <h1><h:outputText value="Edit auction"/></h1>
+    <p/>
+
+    <h:selectOneMenu value="#{auctionEditRequest.id}">
+    <c:forEach items="#{auctionDisplay.myAuctions}" var="auction" varStatus="metadata">
+        <f:selectItem itemValue="#{auction.id}" itemLabel="#{auction.title}"/>
+    </c:forEach>
+    </h:selectOneMenu>
+    <p/>
+
+    <h:inputText id="auctionTitle" value="#{auctionEditRequest.title}" a:placeholder="Title">
+    </h:inputText>
+    <h:message for="auctionTitle"/>
+    <p/>
+
+    <h:inputText id="auctionDescription" value="#{auctionEditRequest.description}" a:placeholder="Description">
+    </h:inputText>
+    <h:message for="auctionDescription"/>
+    <p/>
+
+    <h:inputText id="auctionPrice" value="#{auctionEditRequest.price}" a:placeholder="Price">
+    </h:inputText>
+    <h:message for="auctionPrice"/>
+    <p/>
+
+    <h:selectOneMenu value="#{auctionEditRequest.category}">
+        <c:forEach items="#{categoryRepository.categoryList}" var="category" varStatus="metadata">
+            <f:selectItem itemValue="#{category.name}"/>
+        </c:forEach>
+    </h:selectOneMenu>
+    <p/>
+
+    <h:commandButton value="Edit" action="#{auctionController.updateAuction}"/>
+    <p/>
+
+</h:form>
+</div>
+</ui:define>
+</ui:composition>
+</h:body>
+</html>

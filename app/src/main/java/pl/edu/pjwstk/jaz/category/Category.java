@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "category")
 public class Category { //Category w Section
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")

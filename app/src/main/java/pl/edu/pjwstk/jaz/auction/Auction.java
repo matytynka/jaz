@@ -3,6 +3,7 @@ package pl.edu.pjwstk.jaz.auction;
 import pl.edu.pjwstk.jaz.auth.ProfileEntity;
 import pl.edu.pjwstk.jaz.category.Category;
 
+import javax.faces.model.SelectItem;
 import javax.persistence.*;
 import java.util.List;
 
@@ -41,6 +42,10 @@ public class Auction {
         this.owner = owner;
     }
     public Auction() {}
+
+    public int getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
@@ -87,4 +92,5 @@ public class Auction {
     public void setPhotos(List<Photo> photos) {
         this.photos = photos;
     }
+
 }
