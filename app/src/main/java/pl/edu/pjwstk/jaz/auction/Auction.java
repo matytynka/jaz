@@ -10,6 +10,7 @@ import java.util.List;
 public class Auction {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "title")
@@ -32,12 +33,12 @@ public class Auction {
     @OneToMany
     private List<Photo> photos;
 
-    public Auction(String title, String description, float price, Category category, ProfileEntity owner, List<Photo> photos) {
+    public Auction(String title, String description, float price, Category category, ProfileEntity owner) {
         this.title = title;
+        this.description = description;
         this.price = price;
         this.category = category;
         this.owner = owner;
-        this.photos = photos;
     }
     public Auction() {}
 
@@ -49,16 +50,14 @@ public class Auction {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
-    }
+    public String getDescription() { return description; }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public float getPrice() {
-        return price;
+    public String getPrice() {
+        return String.valueOf(price);
     }
 
     public void setPrice(float price) {

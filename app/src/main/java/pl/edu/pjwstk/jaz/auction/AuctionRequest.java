@@ -16,11 +16,12 @@ public class AuctionRequest {
     private String title;
     private String description;
     private float price;
-    private Category category;
+    private String category;
     private ProfileEntity owner;
     private List<Photo> photos;
 
     public String getTitle() { return title; }
+
     public void setTitle(String title) { this.title = title; }
 
     public String getDescription() { return description; }
@@ -37,11 +38,11 @@ public class AuctionRequest {
         this.price = price;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -64,6 +65,8 @@ public class AuctionRequest {
     @Override
     public String toString() {
         return "AuctionRequest{" +
-                "title='" + title + '\'' + '}';
+                "title='" + title + '\'' +
+                "description='" + description +
+                "price='" + price + '}';
     }
 }

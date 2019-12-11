@@ -1,5 +1,7 @@
 package pl.edu.pjwstk.jaz.auction;
 
+import pl.edu.pjwstk.jaz.category.Category;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -27,6 +29,16 @@ public class AuctionRepository {
     @Transactional
     public List<Auction> getAuctionList() {
         return em.createQuery("from Auction", Auction.class).getResultList();
+    }
+
+    @Transactional
+    public List<Category> getCategoryList() {
+        return em.createQuery("from Category", Category.class).getResultList();
+    }
+
+    @Transactional
+    public Category findByName(String name) {
+        return em.createQuery("from Category where name = :categoryName", Category.class).setParameter("categoryName", name).getSingleResult();
     }
 }
 

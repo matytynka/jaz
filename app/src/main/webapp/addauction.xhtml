@@ -26,9 +26,29 @@
             <p/>
 
             <h:inputText id="auctionTitle" value="#{auctionRequest.title}" a:placeholder="Title">
-                <f:validateLength minimum="3" maximum="15"/>
+                <f:validateLength minimum="3" maximum="20"/>
             </h:inputText>
             <h:message for="auctionTitle"/>
+            <p/>
+
+            <h:inputText id="auctionDescription" value="#{auctionRequest.description}" a:placeholder="Description">
+                <f:validateLength minimum="3" maximum="50"/>
+            </h:inputText>
+            <h:message for="auctionDescription"/>
+            <p/>
+
+            <h:inputText id="auctionPrice" value="#{auctionRequest.price}" a:placeholder="Price">
+                <f:validateLength minimum="3" maximum="15"/>
+            </h:inputText>
+            <h:message for="auctionPrice"/>
+            <p/>
+
+            Dodaj do kategorii:
+            <h:selectOneMenu value="#{auctionRequest.category}">
+                <c:forEach items="#{auctionRepository.categoryList}" var="category" varStatus="metadata">
+                    <f:selectItem itemValue="#{category.name}"/>
+                </c:forEach>
+            </h:selectOneMenu>
             <p/>
 
             <h:commandButton value="Add" action="#{auctionController.addAuction}"/>

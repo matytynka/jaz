@@ -48,7 +48,7 @@
                     </h:inputText>
                     <h:message for="categoryName"/>
                     <p/>
-
+                    Wybierz dzial:
                     <h:selectOneMenu value="#{categoryRequest.sectionName}">
                         <c:forEach items="#{sectionRepository.sectionList}" var="section" varStatus="metadata">
                             <f:selectItem itemValue="#{section.name}"/>

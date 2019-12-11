@@ -13,3 +13,10 @@ databaseChangeLog:
         relativeToChangelogFile: true
         splitStatements: false
         path: 20191120_init.sql
+  - changeSet:
+      id: 20191210_init
+      author: Admin Adminowy
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20191210_init.sql

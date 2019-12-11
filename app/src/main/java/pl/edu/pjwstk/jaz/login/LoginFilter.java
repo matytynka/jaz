@@ -22,10 +22,23 @@ public class LoginFilter extends HttpFilter {
 
         boolean CSSExists = req.getRequestURI().contains(".css");
 
-        if (userSession.loggedUser() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("editsection.xhtml") || req.getRequestURI().contains("addauction.xhtml") || CSSExists) {
-            chain.doFilter(req, res);
+        if (req.getRequestURI().contains("editsection.xhtml")) {
+            if (userSession.loggedUser()) {
+                if (userSession.getProfile().getUsername().equals("admin")) {
+                    chain.doFilter(req, res);
+                } else {
+                    res.sendRedirect(req.getContextPath()+"/login.xhtml");
+                }
+            } else {
+                res.sendRedirect(req.getContextPath()+"/login.xhtml");
+            }
         } else {
-            res.sendRedirect(req.getContextPath()+"/login.xhtml");
+
+            if (userSession.loggedUser() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("addauction.xhtml") || CSSExists) {
+                chain.doFilter(req, res);
+            } else {
+                res.sendRedirect(req.getContextPath() + "/login.xhtml");
+            }
         }
     }
 }

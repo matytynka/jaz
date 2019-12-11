@@ -30,7 +30,7 @@ public class RegisterController {
         profileRepository.newUser(registerRequest.getProfileEntity());
 
         FacesContext context = FacesContext.getCurrentInstance();
-        context.getExternalContext().redirect("/app/webapp/login");
+        context.getExternalContext().redirect("/login");
 
        //profileRepository.sampleCodeWithPC();
     }
