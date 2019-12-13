@@ -1,15 +1,13 @@
 package pl.edu.pjwstk.jaz.auction;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
-    @Entity
+@Entity
     @Table(name = "parameter")
     public class Parameter {
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id;
 
         @Column(name = "name")
