@@ -20,6 +20,13 @@
     </ui:define>
     <ui:define name="content">
 
+        <h:form>
+            <h:commandButton action = "#{navigationController.moveToAddAuction}" value = "Dodaj nowa aukcje"/>
+            <h:commandButton action = "#{navigationController.moveToEditAuction}" value = "Edytuj swoje aukcje"/>
+            <h:commandButton action = "#{navigationController.moveToLogin}" value = "Zaloguj sie na inne konto"/>
+            <h:commandButton action = "#{navigationController.moveToRegister}" value = "Stworz nowe konto"/>
+        </h:form>
+
         <h3>Lista aukcji</h3>
 
         <table style="width:50%">
