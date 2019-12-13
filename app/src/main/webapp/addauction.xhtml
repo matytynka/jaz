@@ -26,13 +26,13 @@
             <p/>
 
             <h:inputText id="auctionTitle" value="#{auctionRequest.title}" a:placeholder="Title">
-                <f:validateLength minimum="3" maximum="30"/>
+                <f:validateLength minimum="3" maximum="40"/>
             </h:inputText>
             <h:message for="auctionTitle"/>
             <p/>
 
             <h:inputTextarea cols="40" rows="5" id="auctionDescription" value="#{auctionRequest.description}" a:placeholder="Description">
-                <f:validateLength minimum="3" maximum="200"/>
+                <f:validateLength minimum="3" maximum="250"/>
             </h:inputTextarea>
             <h:message for="auctionDescription"/>
             <p/>
