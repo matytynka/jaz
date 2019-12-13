@@ -5,6 +5,7 @@ import pl.edu.pjwstk.jaz.login.LoginFilter;
 import pl.edu.pjwstk.jaz.webapp.LoginController;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.xml.registry.infomodel.User;
 import java.io.Serializable;
@@ -37,5 +38,4 @@ public class UserSession implements Serializable {
             return false;
         }
     }
-
 }

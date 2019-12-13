@@ -30,7 +30,7 @@ public class LoginFilter extends HttpFilter {
                     res.sendRedirect(req.getContextPath()+"/login.xhtml");
                 }
             } else {
-                res.sendRedirect(req.getContextPath()+"/login.xhtml");
+                res.sendRedirect(req.getContextPath()+"/accessdenied.xhtml");
             }
         } else {
 
