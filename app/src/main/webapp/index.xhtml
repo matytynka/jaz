@@ -32,11 +32,14 @@
 
         <table align="center">
             <tr>
-                <th> Nazwa </th> <th> Cena(PLN) </th>
+                <th> Miniatura </th> <th> Nazwa </th> <th> Cena(PLN) </th>
             </tr>
 
             <c:forEach items="#{auctionRepository.auctionList}" var="auction" varStatus="metadata">
                 <tr>
+                    <td>
+                        <h:graphicImage value="images/#{auction.photo.link}" class="auctionthumbnail"/>
+                    </td>
                     <td>
                         <h:link outcome="auction">
                                 <f:param name="auctionId" value="#{auction.id}"/>

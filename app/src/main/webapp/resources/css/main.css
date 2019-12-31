@@ -35,3 +35,17 @@ th, td {
 th {
     background-color: lightsteelblue;
 }
+
+.auctionimage {
+    width: auto;
+    height: auto;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.auctionthumbnail {
+    width: auto;
+    height: auto;
+    max-width: 80px;
+    max-height: 80px;
+}

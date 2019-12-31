@@ -18,8 +18,10 @@ public class AuctionRepository {
     private EntityManager em;
 
     @Transactional
-    public void newAuction(Auction auction) {
+    public long newAuction(Auction auction) {
         em.persist(auction);
+        em.flush();
+        return auction.getId();
     }
 
     @Transactional
@@ -48,7 +50,7 @@ public class AuctionRepository {
     }
 
     @Transactional
-    public Auction getbyId(int id) {
+    public Auction getbyId(long id) {
         return em.createQuery("from Auction where id = :auctionId", Auction.class).setParameter("auctionId", id).getSingleResult();
     }
 }

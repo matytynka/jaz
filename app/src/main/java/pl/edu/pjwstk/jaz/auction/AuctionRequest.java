@@ -5,6 +5,7 @@ import pl.edu.pjwstk.jaz.category.Category;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import javax.servlet.http.Part;
 import java.util.List;
 
 @Named
@@ -19,6 +20,31 @@ public class AuctionRequest {
     private String category;
     private ProfileEntity owner;
     private List<Photo> photos;
+    private Part photo1, photo2, photo3;
+
+    public Part getPhoto1() {
+        return photo1;
+    }
+
+    public void setPhoto1(Part photo1) {
+        this.photo1 = photo1;
+    }
+
+    public Part getPhoto2() {
+        return photo2;
+    }
+
+    public void setPhoto2(Part photo2) {
+        this.photo2 = photo2;
+    }
+
+    public Part getPhoto3() {
+        return photo3;
+    }
+
+    public void setPhoto3(Part photo3) {
+        this.photo3 = photo3;
+    }
 
     public String getTitle() { return title; }
 

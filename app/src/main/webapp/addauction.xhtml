@@ -3,7 +3,7 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:c="http://java.sun.com/jsp/jstl/core"
@@ -20,7 +20,7 @@
 
         <h2>Dodawanie aukcji</h2>
 
-        <h:form>
+        <h:form enctype="multipart/form-data">
 
             <h1><h:outputText value="Add auction"/></h1>
             <p/>
@@ -49,6 +49,12 @@
                     <f:selectItem itemValue="#{category.name}"/>
                 </c:forEach>
             </h:selectOneMenu>
+            <p/>
+
+            Dodaj zdjecia:
+            <h:inputFile value="#{auctionRequest.photo1}" accept=".png, .jpg" required="true"/>
+            <h:inputFile value="#{auctionRequest.photo2}" accept=".png, .jpg" required="true"/>
+            <h:inputFile value="#{auctionRequest.photo3}" accept=".png, .jpg" required="true"/>
             <p/>
 
             <h:commandButton value="Add" action="#{auctionController.addAuction}"/>

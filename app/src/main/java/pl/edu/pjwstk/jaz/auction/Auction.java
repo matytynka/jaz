@@ -12,7 +12,7 @@ public class Auction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name = "title")
     private String title;
@@ -31,7 +31,7 @@ public class Auction {
     @JoinColumn(name = "owner")
     private ProfileEntity owner;
 
-    @OneToMany
+    @OneToMany(mappedBy = "auction", fetch = FetchType.EAGER)
     private List<Photo> photos;
 
     public Auction(String title, String description, float price, Category category, ProfileEntity owner) {
@@ -43,7 +43,7 @@ public class Auction {
     }
     public Auction() {}
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -91,6 +91,11 @@ public class Auction {
 
     public void setPhotos(List<Photo> photos) {
         this.photos = photos;
+    }
+
+    public Photo getPhoto() {
+        if (photos.size()>= 1) return photos.get(0);
+        else return null;
     }
 
 }

@@ -34,6 +34,12 @@
                 Sprzedawca:
                 <h:outputText value="#{auctionPage.owner}"/>
                 <p/>
+                Zdjecia:
+                    <p/>
+                    <c:forEach items="#{auctionPage.photos}" var="photo" varStatus="metadata">
+                        <h:graphicImage value="images/#{photo.link}" class="auctionimage"/>
+                    </c:forEach>
+                    <p/>
                 <p/>
                 </h:form>
             </div>
