@@ -26,6 +26,13 @@ public class ProfileRepository {
        if(BCrypt.checkpw(password, entity.getPassword())) return entity;
        return null;
     }
+
+    @Transactional
+    public boolean userExists(String username) {
+        ProfileEntity entity = em.find(ProfileEntity.class, username);
+        return entity != null;
+    }
+
     // startTx()
     /*@Transactional
     public void sampleCodeWithPC() {

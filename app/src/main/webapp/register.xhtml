@@ -23,6 +23,9 @@
            <h1><h:outputText value="#{msg['jaz.app.name']}"/> </h1>
             <p/>
 
+            <h:outputText value="#{registerController.errorMsg}"/>
+            <p/>
+
             <h:inputText id="name" value="#{registerRequest.name}" validatorMessage="Dozwolone tylko male i duze litery" a:placeholder="Imie">
                 <f:validateRegex pattern="^[a-zA-Z\p{L}]+.{2,49}$"/>
             </h:inputText>

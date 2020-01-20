@@ -7,6 +7,13 @@ databaseChangeLog:
         splitStatements: false
         path: 20191021_init.sql
   - changeSet:
+      id: 20191022_init
+      author: Martyna Swierszcz
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20191022_init.sql
+  - changeSet:
       id: 20191120_init
       author: Martyna Swierszcz
       sqlFile:

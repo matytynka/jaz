@@ -24,14 +24,22 @@ public class RegisterController {
     @Inject
     private ProfileRepository profileRepository;
 
+    String errorMsg = "";
+
     public void login() throws IOException {
         System.out.println("Tried to register using " + registerRequest.toString());
 
-        profileRepository.newUser(registerRequest.getProfileEntity());
-
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.getExternalContext().redirect("/login");
-
+        if(profileRepository.userExists(registerRequest.getUsername())) {
+            errorMsg = "Uzytkownik o takim nicku juz istnieje!";
+        } else {
+            profileRepository.newUser(registerRequest.getProfileEntity());
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().redirect("/login");
+        }
        //profileRepository.sampleCodeWithPC();
+    }
+
+    public String getErrorMsg() {
+        return errorMsg;
     }
 }

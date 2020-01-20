@@ -34,7 +34,7 @@ public class LoginFilter extends HttpFilter {
             }
         } else {
 
-            if (userSession.loggedUser() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("addauction.xhtml") || CSSExists) {
+            if (userSession.loggedUser() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("addauction.xhtml") || req.getRequestURI().contains("/api") || CSSExists) {
                 chain.doFilter(req, res);
             } else {
                 res.sendRedirect(req.getContextPath() + "/login.xhtml");
